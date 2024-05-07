@@ -1,0 +1,31 @@
+@media ( max-width : 768px) {
+	#wrap {
+		padding: 0 10px; /* 작은 화면에서 좌우 패딩을 줄임 */
+	}
+}
+
+#container1 {
+	margin: 0 auto;
+	max-width: 1200px;
+	display: flex;
+}
+
+.search_box {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.car_recommend {
+	margin: 0 auto;
+	max-width: 1200px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.car_recommend img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
