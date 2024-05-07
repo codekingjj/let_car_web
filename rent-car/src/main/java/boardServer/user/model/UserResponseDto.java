@@ -9,10 +9,11 @@ public class UserResponseDto {
 	private String phone;
 	private String address;
 
-	public UserResponseDto(String id, String name, String birth, String gender,
+	public UserResponseDto(String id, String password, String name, String birth, String gender,
 			 String phone, String address) {
 		super();
 		this.id = id;
+		this.password = password;
 		this.name = name;
 		this.birth = birth;
 		this.gender = gender;
@@ -22,6 +23,7 @@ public class UserResponseDto {
 	
 	public UserResponseDto(User user) {
 		this.id = user.getId();
+		this.password = user.getPassword();
 		this.name = user.getName();
 		this.birth = user.getBirth();
 		this.gender = user.getGender();

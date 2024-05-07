@@ -50,4 +50,12 @@
 		<servlet-name>joinAction</servlet-name>
 		<url-pattern>/joinAction</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>LoginAction</servlet-name>
+		<servlet-class>boardServer.user.controller.LoginAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginAction</servlet-name>
+		<url-pattern>/LoginAction</url-pattern>
+	</servlet-mapping>
 </web-app>

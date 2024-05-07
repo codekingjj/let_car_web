@@ -34,6 +34,7 @@
 					</div>
 				</div>
 				<input type="text" id="phone" name="phone" placeholder="휴대전화번호">
+				<input type="text" id="address" name="address" placeholder="주소(선택)">
 			</div>
 			<div class="error-container">
 				<p class="error-msg" id="error-msg-name">* 이름: 필수 정보입니다.</p>

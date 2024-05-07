@@ -11,23 +11,27 @@ public class User {
 	private String phone;
 	private String address;
 	private Timestamp regDate;
-	private Timestamp modDate;
 	
-	public User(String id, String name, String birth, String gender,
-			String phone, String address, Timestamp regDate, Timestamp mogDate) {
+	public User(String id, String password, String name, String birth, String gender,
+			String phone, Timestamp regDate, String address) {
 		super();
 		this.id = id;
+		this.password = password;
 		this.name = name;
 		this.birth = birth;
 		this.gender = gender;
 		this.phone = phone;
 		this.regDate = regDate;
-		this.modDate = mogDate;
+		this.address = address;
 	}
 
 
 	public String getId() {
 		return id;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 	
 	
@@ -38,16 +42,6 @@ public class User {
 
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
-	}
-
-
-	public Timestamp getModDate() {
-		return modDate;
-	}
-
-
-	public void setModDate(Timestamp mogDate) {
-		this.modDate = mogDate;
 	}
 	
 	

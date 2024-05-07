@@ -12,9 +12,10 @@
 		<div id="container1">
 			<img
 				src="https://png.pngtree.com/thumb_back/fh260/background/20210619/pngtree-simple-sky-blue-simple-horizontal-gradient-background-image_729227.jpg">
-			<form>
+			<form method="POST" action="LoginAction">
 				아이디 : <input type="text"><br> 
 				비밀번호 : <input type="password">
+				<input type="submit" value="로그인">
 			</form>
 		</div>
 		<div class="search_box">
