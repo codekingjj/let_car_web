@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+.container {
+	margin : 0 auto;
+	max-width: 1200px;
+	display : flex;
+}
+
+.navi {
+	margin-top: 60px;
+	margin-left: 50px;
+	display : flex;
+	font-family: "Jua", sans-serif;
+	padding-left : 20px;
+}
+
+.navi>button {
+	margin-left: 50px;
+	display : flex;
+	font-family: "Jua", sans-serif;
+	padding-left : 20px;
+}
+
+a {
+	padding-left : 50px;
+	font-size : 2rem;
+}
+
