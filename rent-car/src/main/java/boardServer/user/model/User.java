@@ -11,6 +11,7 @@ public class User {
 	private String phone;
 	private String address;
 	private Timestamp regDate;
+	private String admin;
 	
 	public User(String id, String password, String name, String birth, String gender,
 			String phone, Timestamp regDate, String address) {
@@ -24,7 +25,20 @@ public class User {
 		this.regDate = regDate;
 		this.address = address;
 	}
-
+	
+	public User(String id, String password, String name, String birth, String gender,
+			String phone, Timestamp regDate, String address, String admin) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.birth = birth;
+		this.gender = gender;
+		this.phone = phone;
+		this.regDate = regDate;
+		this.address = address;
+		this.admin = admin;
+	}
 
 	public String getId() {
 		return id;
@@ -68,5 +82,12 @@ public class User {
 	
 	public void setAddress(String address) {
 		this.address = address;	
+	}
+	public String getAdmin() {
+		return admin;
+	}
+	
+	public void setAdmin(String admin) {
+		this.admin = admin;
 	}
 }

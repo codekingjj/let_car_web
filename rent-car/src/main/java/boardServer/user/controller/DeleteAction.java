@@ -7,20 +7,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import boardServer.user.model.UserDao;
+import boardServer.user.model.UserRequestDto;
 import boardServer.user.model.UserResponseDto;
 
 /**
- * Servlet implementation class LoginAction
+ * Servlet implementation class DeleteAction
  */
-public class LoginAction extends HttpServlet {
+
+public class DeleteAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginAction() {
+    public DeleteAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,36 +42,31 @@ public class LoginAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id = request.getParameter("id");
+		request.setCharacterEncoding("UTF-8");
+
+		UserDao userDao = UserDao.getInstance();
+		
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+
+		String id = user.getId();
 		String password = request.getParameter("password");
-		
-		System.out.println(id);
-		System.out.println(password);
-		boolean isValid = true;
-		
-		if(id == null || id.equals(""))
-			isValid = false;
-		else if(password == null || password.equals(""))
-			isValid = false;
-		
-		if(isValid) {
-			// 연동된 데이터 베이스로부터		(UserDao)
-			// 유저의 정보를 조회 하고,		(findUserByIdAndPassword())
-			// 정보가 일치하면				(return된 UserResponseDto가 null이 아니면)
-			// 로그인 처리 후, 페이지 이동		(jsp 내장객체 중 session에 유저정보 저장)
-			
-			UserDao userDao = UserDao.getInstance();
-			UserResponseDto user = userDao.findUserByIdAndPassword(id, password);
-			
-			HttpSession session = request.getSession();
-			if(user != null) {
-				session.setAttribute("user", user);
-				response.sendRedirect("/welcome");				
-			} else {
-				response.sendRedirect("/unwelcome");				
-			}
+
+		// 패스워드가 일치하면 -> 삭제 처리 
+		UserRequestDto userDto = new UserRequestDto();
+
+		userDto.setId(id);
+		userDto.setPassword(password);
+
+		boolean result = userDao.deleteUser(userDto);
+
+		if(result) {
+			session.removeAttribute("user");
+			response.sendRedirect("/completeDeleteUser");
 		} else {
-			response.sendRedirect("/home");
+			JFrame jFrame = new JFrame();
+		    JOptionPane.showMessageDialog(jFrame, "비밀번호가 틀렸습니다.");
+			response.sendRedirect("/deleteUserForm");
 		}
 	}
 

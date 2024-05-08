@@ -73,7 +73,7 @@ public class joinAction extends HttpServlet {
 				response.sendRedirect("/join");
 			}else {
 				System.out.println("성공");
-				response.sendRedirect("/login");
+				response.sendRedirect("/welcome");
 				
 			}
 		}

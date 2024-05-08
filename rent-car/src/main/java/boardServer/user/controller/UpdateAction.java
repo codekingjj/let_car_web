@@ -9,18 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import boardServer.user.model.UserDao;
+import boardServer.user.model.UserRequestDto;
 import boardServer.user.model.UserResponseDto;
 
 /**
- * Servlet implementation class LoginAction
+ * Servlet implementation class UpdateAction
  */
-public class LoginAction extends HttpServlet {
+
+public class UpdateAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginAction() {
+    public UpdateAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,37 +40,36 @@ public class LoginAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id = request.getParameter("id");
+		request.setCharacterEncoding("UTF-8");
+
+		UserDao userDao = UserDao.getInstance();
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+
 		String password = request.getParameter("password");
-		
-		System.out.println(id);
-		System.out.println(password);
-		boolean isValid = true;
-		
-		if(id == null || id.equals(""))
-			isValid = false;
-		else if(password == null || password.equals(""))
-			isValid = false;
-		
-		if(isValid) {
-			// 연동된 데이터 베이스로부터		(UserDao)
-			// 유저의 정보를 조회 하고,		(findUserByIdAndPassword())
-			// 정보가 일치하면				(return된 UserResponseDto가 null이 아니면)
-			// 로그인 처리 후, 페이지 이동		(jsp 내장객체 중 session에 유저정보 저장)
+		if(userDao.findUserByIdAndPassword(user.getId(), password) != null) {
+			UserRequestDto userDto = new UserRequestDto();
 			
-			UserDao userDao = UserDao.getInstance();
-			UserResponseDto user = userDao.findUserByIdAndPassword(id, password);
+			userDto.setId(user.getId());
+			userDto.setPassword(password);
 			
-			HttpSession session = request.getSession();
-			if(user != null) {
-				session.setAttribute("user", user);
-				response.sendRedirect("/welcome");				
-			} else {
-				response.sendRedirect("/unwelcome");				
+			String newPassword = request.getParameter("password-new");
+			
+			String phone = request.getParameter("phone");
+			
+			if(!newPassword.equals("") && !newPassword.equals(password)) {
+				user = userDao.updateUserPassword(userDto, newPassword);
 			}
-		} else {
-			response.sendRedirect("/home");
+			
+			
+			
+			if(!user.getPhone().equals(phone)) {
+				userDto.setPhone(phone);
+				user = userDao.updateUserPhone(userDto);
+			}
 		}
+		session.setAttribute("user", user);
+		response.sendRedirect("/mypage");
 	}
 
 }

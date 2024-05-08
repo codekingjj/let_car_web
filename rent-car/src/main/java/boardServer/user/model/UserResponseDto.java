@@ -20,6 +20,16 @@ public class UserResponseDto {
 		this.phone = phone;
 		this.address = address;
 	}
+	public UserResponseDto(String id, String password, String name, String birth, String gender,
+			 String phone) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.birth = birth;
+		this.gender = gender;
+		this.phone = phone;
+	}
 	
 	public UserResponseDto(User user) {
 		this.id = user.getId();

@@ -17,6 +17,7 @@
 			<a href="../reservation/reservation_car.jsp">렌터카 예약</a>
 			<a href="../board/board.jsp">공지사항</a>
 			<a href="../board/board.jsp">게시판</a>
+			<a href="/mypage">마이페이지</a>
 		<a href="/join">회원가입</a>
 		</div>
 	</div>
