@@ -26,7 +26,7 @@ public class UserDao {
         try {
             conn = DBManager.getConnection();
 
-            String sql = "SELECT id, password, name, birth, gender, phone, address FROM user WHERE id=? AND password=?";
+            String sql = "SELECT id, password, name, birth, gender, phone, address, admin_check FROM user WHERE id=? AND password=?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, id);
             pstmt.setString(2, password);
@@ -39,9 +39,10 @@ public class UserDao {
 				String gender = rs.getString(5);
 				String phone = rs.getString(6);
 				String address = rs.getString(7);
+				String adminCheck = rs.getString(8);
 				
 				
-				user = new UserResponseDto(id, password, name, birth, gender, phone, address);
+				user = new UserResponseDto(id, password, name, birth, gender, phone, address, adminCheck);
     
             }
         } catch (SQLException e) {

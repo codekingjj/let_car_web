@@ -5,12 +5,7 @@
 	version="4.0">
 	<display-name>lent_car</display-name>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>/views/home/home.jsp</welcome-file>
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>home</servlet-name>
@@ -29,6 +24,22 @@
 		<url-pattern>/board</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>writeBoard</servlet-name>
+		<jsp-file>/views/board/writeBoard.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>writeBoard</servlet-name>
+		<url-pattern>/writeBoard</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>writeNotice</servlet-name>
+		<jsp-file>/views/board/writeNotice.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>writeNotice</servlet-name>
+		<url-pattern>/writeNotice</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>welcome</servlet-name>
 		<jsp-file>/views/user/welcome.jsp</jsp-file>
 	</servlet>
@@ -43,6 +54,14 @@
 	<servlet-mapping>
 		<servlet-name>unwelcome</servlet-name>
 		<url-pattern>/unwelcome</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<jsp-file>/views/user/logout.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>completeDeleteUser</servlet-name>
@@ -149,5 +168,13 @@
 	<servlet-mapping>
 		<servlet-name>DeleteAction</servlet-name>
 		<url-pattern>/DeleteAction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>WriteBoardAction</servlet-name>
+		<servlet-class>boardServer.board.controller.WriteBoardAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WriteBoardAction</servlet-name>
+		<url-pattern>/WriteBoardAction</url-pattern>
 	</servlet-mapping>
 </web-app>

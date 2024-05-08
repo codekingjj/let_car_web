@@ -8,6 +8,7 @@ public class UserResponseDto {
 	private String gender;
 	private String phone;
 	private String address;
+	private String adminCheck;
 
 	public UserResponseDto(String id, String password, String name, String birth, String gender,
 			 String phone, String address) {
@@ -19,6 +20,18 @@ public class UserResponseDto {
 		this.gender = gender;
 		this.phone = phone;
 		this.address = address;
+	}
+	public UserResponseDto(String id, String password, String name, String birth, String gender,
+			 String phone, String address, String adminCheck) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.birth = birth;
+		this.gender = gender;
+		this.phone = phone;
+		this.address = address;
+		this.adminCheck = adminCheck;
 	}
 	public UserResponseDto(String id, String password, String name, String birth, String gender,
 			 String phone) {
@@ -39,6 +52,7 @@ public class UserResponseDto {
 		this.gender = user.getGender();
 		this.phone = user.getPhone();
 		this.address = user.getAddress();
+		this.adminCheck = user.getAdminCheck();
 	}
 
 	public String getId() {
@@ -97,6 +111,10 @@ public class UserResponseDto {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	public String getAdminCheck() {
+		return adminCheck;
 	}
 	
 	@Override
