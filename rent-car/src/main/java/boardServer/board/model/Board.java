@@ -6,7 +6,7 @@ public class Board {
 	private String title;
 	private String content;
 	private String boardId;
-	private Timestamp regDate;
+	private String regDate;
 	private String noticeCheck;
 	
 	
@@ -28,10 +28,10 @@ public class Board {
 	public void setBoardId(String boardId) {
 		this.boardId = boardId;
 	}
-	public Timestamp getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(Timestamp regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
 	public String getNoticeCheck() {

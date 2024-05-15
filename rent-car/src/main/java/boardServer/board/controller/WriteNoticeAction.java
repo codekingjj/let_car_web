@@ -12,42 +12,39 @@ import boardServer.board.model.BoardRequestDto;
 import boardServer.board.model.BoardResponseDto;
 
 /**
- * Servlet implementation class WriteBoardAction
+ * Servlet implementation class WriteNoticeAction
  */
-public class WriteBoardAction extends HttpServlet {
+
+public class WriteNoticeAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public WriteNoticeAction() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public WriteBoardAction() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String boardId = request.getParameter("board_id");
-		String noticeCheck = "N";
+		String noticeCheck = "Y";
 		
 		System.out.println(title);
 		System.out.println(content);
@@ -74,7 +71,7 @@ public class WriteBoardAction extends HttpServlet {
 				response.sendRedirect("/board");
 			}else {
 				System.out.println("성공");
-				response.sendRedirect("/board");
+				response.sendRedirect("/home");
 			}
 			
 		}

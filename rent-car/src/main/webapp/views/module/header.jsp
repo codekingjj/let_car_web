@@ -14,8 +14,8 @@
 			<h2>메가 렌트카</h2>
 		</div>
 		<div class="navi">
-			<a href="../car/info_car.jsp">렌터카 종류</a>
-			<a href="../reservation/reservation_car.jsp">렌터카 예약</a>
+			<a href="/carInfo">렌터카 종류</a>
+			<a href="/carInfo">렌터카 예약</a>
 			<a href="/board">공지사항</a>
 			<a href="/board">게시판</a>
 			<a href="/mypage">마이페이지</a>

@@ -16,12 +16,28 @@
 		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>carInfo</servlet-name>
+		<jsp-file>/views/car/carInfo.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>carInfo</servlet-name>
+		<url-pattern>/carInfo</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>board</servlet-name>
 		<jsp-file>/views/board/board.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>board</servlet-name>
 		<url-pattern>/board</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>updateBoard</servlet-name>
+		<jsp-file>/views/board/updateBoard.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateBoard</servlet-name>
+		<url-pattern>/updateBoard</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>writeBoard</servlet-name>
@@ -32,12 +48,28 @@
 		<url-pattern>/writeBoard</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>deleteBoard</servlet-name>
+		<jsp-file>/views/board/deleteBoard.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteBoard</servlet-name>
+		<url-pattern>/deleteBoard</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>writeNotice</servlet-name>
 		<jsp-file>/views/board/writeNotice.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>writeNotice</servlet-name>
 		<url-pattern>/writeNotice</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>boardView</servlet-name>
+		<jsp-file>/views/board/boardView.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardView</servlet-name>
+		<url-pattern>/boardView</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>welcome</servlet-name>
@@ -127,7 +159,30 @@
 		<servlet-name>join</servlet-name>
 		<url-pattern>/join</url-pattern>
 	</servlet-mapping>
-
+	<servlet>
+		<servlet-name>reservation</servlet-name>
+		<jsp-file>/views/reservation/reservation.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reservation</servlet-name>
+		<url-pattern>/reservation</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>successReservation</servlet-name>
+		<jsp-file>/views/reservation/successReservation.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>successReservation</servlet-name>
+		<url-pattern>/successReservation</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>checkReservation</servlet-name>
+		<jsp-file>/views/reservation/checkReservation.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>checkReservation</servlet-name>
+		<url-pattern>/checkReservation</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>joinAction</servlet-name>
 		<servlet-class>boardServer.user.controller.joinAction</servlet-class>
@@ -176,5 +231,45 @@
 	<servlet-mapping>
 		<servlet-name>WriteBoardAction</servlet-name>
 		<url-pattern>/WriteBoardAction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ReadBoardAction</servlet-name>
+		<servlet-class>boardServer.board.controller.ReadBoardAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReadBoardAction</servlet-name>
+		<url-pattern>/ReadBoardAction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>WriteNoticeAction</servlet-name>
+		<servlet-class>boardServer.board.controller.WriteNoticeAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WriteNoticeAction</servlet-name>
+		<url-pattern>/WriteNoticeAction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UpdateBoardAction</servlet-name>
+		<servlet-class>boardServer.board.controller.UpdateBoardAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateBoardAction</servlet-name>
+		<url-pattern>/UpdateBoardAction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DeleteBoardAction</servlet-name>
+		<servlet-class>boardServer.board.controller.DeleteBoardAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteBoardAction</servlet-name>
+		<url-pattern>/DeleteBoardAction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ReservationAction</servlet-name>
+		<servlet-class>boardServer.reservation.controller.ReservationAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReservationAction</servlet-name>
+		<url-pattern>/ReservationAction</url-pattern>
 	</servlet-mapping>
 </web-app>
